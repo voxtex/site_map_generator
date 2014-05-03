@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+require 'thor'
+require_relative 'app/site_map'
+
+class SitemapTask < Thor
+  default_task :generate
+
+  desc 'generate URI', 'Generates the sitemap for a website. Outputs to graph.png and graph.dot by default.'
+  method_option :depth, aliases: '-d', default: 1, type: :numeric, desc: 'Depth limit of breadth first traversal.'
+  method_option :filename, aliases: '-f', desc: 'Filename for image.'
+  method_option :'no-image', type: :boolean, desc: "Don't create the image."
+
+  def generate(uri)
+    say 'Generating sitemap...this could take a while.'
+    sitemap = SiteMap.new(uri, options[:depth])
+    filename = options[:filename] || 'graph'
+    if options[:'no-image']
+      filename += '.dot'
+      File.open(filename, 'w') do |f|
+        sitemap.print_dotted_on({}, f)
+        say "Dot file saved as #{f.path}"
+      end
+    else
+      file = sitemap.write_to_graphic_file 'png', filename
+      say "Image saved as #{file}."
+    end
+  end
+end
+
+SitemapTask.start(ARGV)

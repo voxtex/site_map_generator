@@ -1,0 +1,31 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - bin/*
+
+Documentation:
+  Enabled: false
+
+DotPosition:
+  EnforcedStyle: trailing
+
+Encoding:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+LineLength:
+  Max: 120
+
+MethodLength:
+  Max: 20
+
+NumericLiterals:
+  Enabled: false
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+TrailingBlankLines:
+  Enabled: false
