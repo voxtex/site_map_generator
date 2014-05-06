@@ -1,8 +1,8 @@
-# Processes an HTML string and parses out
-# all href links and static assets.
 require 'nokogiri'
 require_relative 'uri_helper'
 
+# Processes an HTML string and parses out
+# all href links and static assets.
 class HTMLProcessor
   def initialize(html)
     @doc = Nokogiri::HTML(html)

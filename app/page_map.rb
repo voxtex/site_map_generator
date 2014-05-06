@@ -12,7 +12,6 @@ class PageMap
 
   def initialize(uri, html = nil)
     @uri = URIHelper.clean(URIHelper.parse_url(uri))
-    @uri.scheme = 'http' unless @uri.scheme
     @html = html
   end
 
