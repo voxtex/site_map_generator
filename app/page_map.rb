@@ -71,7 +71,7 @@ class PageMap
     rescue
       @links = []
       @assets = {}
-      puts "Error processing page #{@uri}."
+      puts "Error processing page #{@uri}"
     end
     @processed = true
   end

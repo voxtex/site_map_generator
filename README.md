@@ -18,10 +18,25 @@ A simple command line site map generator in Ruby. Crawls a given URL for all sta
 
         bundle exec ./sitemap http://www.url.com
 
+## Testing
+
+Run all tests using rspec.
+  rspec
+
+
+## Examples
+
+    ./sitemap -- google.com
+hacker news with a depth of 0 and no image,
+
+    ./sitemap -d=0 --no-image news.ycombinator.com
 
 ## Notes
 
-- Depth is specified breadth first. 0 = root, 1 = root and all links, etc
 - Be careful with specifying a depth, anything over 1 can take a really long time
+- Some websites with lots of front page links (www.reddit.com) also take long
+- Query parameters are ignored.
+- Depth is specified breadth first. 0 = root, 1 = root and all links, etc
 - Image files can get quite large. Skip image creation using --no-image
-- Change the filename using -f
+- Change the filename using -f, no need to specify an extension.
+- Subdomain is important. a.com is different than www.a.com.
