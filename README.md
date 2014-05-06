@@ -21,7 +21,8 @@ A simple command line site map generator in Ruby. Crawls a given URL for all sta
 ## Testing
 
 Run all tests using rspec.
-  rspec
+
+    rspec
 
 
 ## Examples
