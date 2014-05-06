@@ -6,8 +6,13 @@ class SitemapTask < Thor
   default_task :generate
 
   desc 'generate URI', 'Generates the sitemap for a website. Outputs to graph.png and graph.dot by default.'
+
   method_option :depth, aliases: '-d', default: 1, type: :numeric, desc: 'Depth limit of breadth first traversal.'
-  method_option :'links-per-page', aliases: '-l', default: 20, type: :numeric, desc: 'Max number of links to follow on each page.'
+  method_option :'links-per-page',
+                aliases: '-l',
+                default: 20,
+                type: :numeric,
+                desc: 'Max number of links to follow on each page.'
   method_option :filename, aliases: '-f', desc: 'Filename for image.'
   method_option :'no-image', type: :boolean, desc: "Don't create the image."
 

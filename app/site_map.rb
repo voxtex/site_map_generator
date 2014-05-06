@@ -2,7 +2,6 @@ require 'rgl/dot'
 require 'rgl/traversal'
 require 'rgl/adjacency'
 require_relative 'page_map_factory'
-require 'pp'
 
 # Crawls a URI and generates PageMaps for every page
 # that is linked, up to the specified depth.
