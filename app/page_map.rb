@@ -1,5 +1,4 @@
 require 'httparty'
-require 'uri'
 require 'nokogiri'
 require_relative 'html_processor'
 require_relative 'uri_helper'
@@ -73,6 +72,7 @@ class PageMap
     rescue
       @links = []
       @assets = {}
+      puts "Error processing page #{@uri}."
     end
     @processed = true
   end
