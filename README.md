@@ -13,10 +13,10 @@ A simple command line site map generator in Ruby. Crawls a given URL for all sta
         bundle install
 - Run the command line script
 
-        ./sitemap http://www.url.com
+        ./sitemap -- http://www.url.com
 - If you have problems with gem versions, use
 
-        bundle exec ./sitemap http://www.url.com
+        bundle exec ./sitemap -- http://www.url.com
 
 ## Testing
 
