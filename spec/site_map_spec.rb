@@ -25,17 +25,17 @@ describe SiteMap do
   end
 
   it 'traverses all of the linked URIs' do
-    sitemap = SiteMap.new('http://www.a.com/', 2, @page_map_factory)
+    sitemap = SiteMap.new('http://www.a.com/', 2, 20, @page_map_factory)
     expect(sitemap.vertices).to eq([@root, @a_page, @b_page, @c_page])
     expect(sitemap.edges.length).to be(4)
   end
 
   it 'only traverses to the depth specified' do
-    sitemap = SiteMap.new('http://www.a.com/', 0, @page_map_factory)
+    sitemap = SiteMap.new('http://www.a.com/', 0, 20, @page_map_factory)
     expect(sitemap.vertices).to eq([@root, @a_page])
     expect(sitemap.edges.length).to be(1)
 
-    sitemap = SiteMap.new('http://www.a.com/', 1, @page_map_factory)
+    sitemap = SiteMap.new('http://www.a.com/', 1, 20, @page_map_factory)
     expect(sitemap.vertices).to eq([@root, @a_page, @b_page, @c_page])
     expect(sitemap.edges.length).to be(3)
   end

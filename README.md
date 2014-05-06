@@ -27,16 +27,21 @@ Run all tests using rspec.
 ## Examples
 
     ./sitemap -- google.com
-hacker news with a depth of 0 and no image,
 
-    ./sitemap -d=0 --no-image news.ycombinator.com
+hacker news with a depth of 0
 
+    ./sitemap -d=0 news.ycombinator.com
+
+reddit with only 10 links per page, depth of 2
+
+    ./sitemap -d=2 -l=10 www.reddit.com
 ## Notes
 
+- Default is a depth of 1, with a limit of 20 links per page.
 - Be careful with specifying a depth, anything over 1 can take a really long time
-- Some websites with lots of front page links (www.reddit.com) also take long
+- Use a smaller links-per-page limit for sites such as reddit.com with lots of links.
 - Query parameters are ignored.
-- Depth is specified breadth first. 0 = root, 1 = root and all links, etc
+- For depth: 0 = root, 1 = root and all links, etc
 - Image files can get quite large. Skip image creation using --no-image
 - Change the filename using -f, no need to specify an extension.
 - Subdomain is important. a.com is different than www.a.com.

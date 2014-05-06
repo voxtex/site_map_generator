@@ -9,10 +9,11 @@ require 'pp'
 # Each page is a vertex in the graph.
 # Directed edges are created for all links to other pages.
 class SiteMap < RGL::DirectedAdjacencyGraph
-  def initialize(uri, depth = 1, page_map_factory = PageMapFactory.new)
+  def initialize(uri, depth = 1, links_per_page = 20, page_map_factory = PageMapFactory.new)
     super()
     @uri = URIHelper.parse_url(uri)
     @depth = depth
+    @links_per_page = links_per_page
     @page_map_factory = page_map_factory
 
     initialize_graph
@@ -42,7 +43,7 @@ class SiteMap < RGL::DirectedAdjacencyGraph
   end
 
   def process_page(page)
-    page.links.map do |l|
+    page.links.take(@links_per_page).map do |l|
       @page_map_factory.make_page(l).tap do |p|
         # avoid self referencing edges
         add_edge(page, p) unless p == page
