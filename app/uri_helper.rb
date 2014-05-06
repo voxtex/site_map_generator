@@ -12,10 +12,8 @@ class URIHelper
       return uri if uri.is_a? URI
 
       uri = URI.parse(uri)
-      if uri.scheme.nil? && uri.host.nil?
-        uri = URI.parse('http://' + uri.to_s)
-      end
-      uri
+      is_incomplete = uri.scheme.nil? && uri.host.nil?
+      is_incomplete ? URI.parse('http://' + uri.to_s) : uri
     end
 
     # Determines if two URIs are on the same domain.

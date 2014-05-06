@@ -1,5 +1,4 @@
 module HTMLMocks
-
   # Test page containing many different forms of each
   # URI, hopefully covering all edge cases.
   PARSE_TEST = <<-html
