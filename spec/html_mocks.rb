@@ -30,48 +30,4 @@ module HTMLMocks
     </body>
   </html>
   html
-
-  # http://www.a.com
-  ROOT_PAGE = <<-html
-  <html>
-    <head>
-    </head>
-    <body>
-      <a href='/a' />
-    </body>
-  </html>
-  html
-
-  # http://www.a.com/a
-  A_PAGE = <<-html
-  <html>
-    <head>
-    </head>
-    <body>
-      <a href='/b' />
-      <a href='/c' />
-    </body>
-  </html>
-  html
-
-  # http://www.a.com/b
-  B_PAGE = <<-html
-  <html>
-    <head>
-    </head>
-    <body>
-      <a href='/' />
-    </body>
-  </html>
-  html
-
-  # http://www.a.com/c
-  C_PAGE = <<-html
-  <html>
-    <head>
-    </head>
-    <body>
-    </body>
-  </html>
-  html
 end
